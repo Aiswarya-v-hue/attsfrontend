@@ -45,9 +45,22 @@ function Productform() {
     useEffect(() => { 
         getallproducts(); 
 
-    },[]);
+    },[getallproducts]);
 
     //  Add Product
+
+   
+
+
+
+
+
+
+
+
+
+
+
     const handleSubmit = async (values, { resetForm }) => {
         const formData = new FormData();
         formData.append('name', values.name);
@@ -64,7 +77,7 @@ function Productform() {
             });
             alert("Product added successfully!");
             resetForm();
-            getallproducts(); // Refresh the list
+           getallproducts(); // Refresh the list
         } catch (error) {
             console.error("Error adding product:", error);
         }
