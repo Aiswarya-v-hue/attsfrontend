@@ -1,0 +1,154 @@
+.login-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Image section */
+.login-image {
+  width: 80%;
+  max-width: 450px;
+  position: relative;
+}
+
+/* Logo position */
+.logo-login {
+  position: absolute;
+  left: 30px;
+  top: 10%;
+  color: #6C5DD3;
+}
+
+/* Right-side login form */
+.login-right {
+  flex: 1;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+  margin-left: 130px;
+}
+
+/* Form elements */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Checkbox */
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.form-checkbox input {
+  margin-right: 10px;
+}
+
+/* Login button */
+.login-button {
+  background-color: #6C5DD3;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.login-button:hover {
+  background-color: #5a4bcf;
+}
+
+/* Footer */
+.login-footer {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .login-container {
+      flex-direction: column;
+      padding: 30px;
+      text-align: center;
+  }
+  
+  .login-image {
+      width: 60%;
+  }
+
+  .login-right {
+      max-width: 100%;
+      left: 0;
+  }
+
+  .logo-login {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+  }
+
+  .login-image {
+      width: 70%;
+      max-width: 300px;
+  }
+
+  .login-right {
+      max-width: 100%;
+      text-align: center;
+      padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+      padding: 15px;
+  }
+
+  .login-image {
+      width: 90%;
+      max-width: 250px;
+  }
+
+  .form-group {
+      flex-direction: column;
+  }
+
+  .form-checkbox {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}

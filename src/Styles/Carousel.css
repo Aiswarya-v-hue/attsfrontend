@@ -1,0 +1,61 @@
+.carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    object-fit: contain;
+   
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 400px;
+    object-fit: fill;
+    transition: opacity 1s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  /* Optional carousel wrapper if used */
+  .carousel_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 1200px;
+    height: auto;
+    
+    
+  }
+  
+  /* 🎯 Responsive Breakpoints */
+  
+  @media screen and (max-width: 1024px) {
+    .carousel-image {
+      height: 350px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .carousel-image {
+      height: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .carousel-image {
+      height: 250px;
+    }
+  
+    .carousel_div {
+      margin: 20px;
+      flex-direction: column;
+      border: none;
+      padding: 0;
+    }
+  }
+  
