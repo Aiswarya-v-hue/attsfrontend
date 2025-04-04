@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Styles/Buypage.css';
+import backendUrl from '../config';
 
 function Buypage() {
   const [products, setProducts] = useState([]);
@@ -8,7 +9,7 @@ function Buypage() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await axios.get("https://attsbackend.onrender.com/api/getall");
+        const res = await axios.get(`${backendUrl}/api/getall`);
         console.log(res.data);
         setProducts(res.data);
       } catch (err) {
@@ -26,7 +27,7 @@ function Buypage() {
         {products.map((product) => (
           <div key={product._id} className="product-card">
             <img
-              src={product.image ? `https://attsbackend.onrender.com/uploads/${product.image}` : 'https://via.placeholder.com/150'}
+              src={product.image ? `${backendUrl}/uploads/${product.image}` : 'https://via.placeholder.com/150'}
               alt={product.name}
               className="product-image"
             />

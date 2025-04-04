@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from "yup";
 import { Formik, Field, ErrorMessage } from 'formik';
-
+import backendUrl from '../config';
 function Signup() {
   const nav = useNavigate();
 
@@ -32,7 +32,7 @@ function Signup() {
 
   const handleSubmit = (values, { resetForm }) => {
     axios
-      .post('https://attsbackend.onrender.com/api/create', values)
+      .post(`${backendUrl}/api/create`, values)
       .then(response => {
         console.log(response.data);
         

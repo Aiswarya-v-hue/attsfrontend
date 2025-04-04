@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Styles/formstyle.css'
 import { useCallback } from 'react';
+import backendUrl from '../config';
 function Productform() {
     const [getproduct, setgetproduct] = useState([]);
     const [editProduct, setEditProduct] = useState(null); // For updating a product
@@ -33,7 +34,7 @@ function Productform() {
     //  Fetch All Products
     const getallproducts = useCallback(async () => {
         try {
-            const response = await axios.get("https://attsbackend.onrender.com/api/auth/myproducts", {
+            const response = await axios.get(`${backendUrl}/api/auth/myproducts`, {
                 headers: { 'Authorization': `Bearer ${Token}` }
             });
             setgetproduct(response.data); 
@@ -48,19 +49,6 @@ function Productform() {
     },[getallproducts]);
 
     //  Add Product
-
-   
-
-
-
-
-
-
-
-
-
-
-
     const handleSubmit = async (values, { resetForm }) => {
         const formData = new FormData();
         formData.append('name', values.name);
@@ -72,7 +60,7 @@ function Productform() {
         formData.append('image', values.image);
 
         try {
-            await axios.post('https://attsbackend.onrender.com/api/auth/addproduct', formData, {
+            await axios.post(`${backendUrl}/api/auth/addproduct`, formData, {
                 headers: { 'Authorization': `Bearer ${Token}`, 'Content-Type': 'multipart/form-data' }
             });
             alert("Product added successfully!");
@@ -86,7 +74,7 @@ function Productform() {
     // Delete Product
     const deleteProduct = async (id) => {
         try {
-            await axios.delete(`https://attsbackend.onrender.com/api/auth/delete/${id}`, {
+            await axios.delete(`${backendUrl}/api/auth/delete/${id}`, {
                 headers: { 'Authorization': `Bearer ${Token}` }
             });
             alert("Product deleted successfully!");
@@ -110,7 +98,7 @@ function Productform() {
           };
       
           const res = await axios.post(
-            `https://attsbackend.onrender.com/api/auth/productupdate/${values._id}`,
+            `${backendUrl}/api/auth/productupdate/${values._id}`,
             updatedData,
             {
               headers: {
@@ -192,7 +180,7 @@ function Productform() {
             <div className="product-list">
                 {getproduct.map((product) => (
                     <div key={product._id} className="product-card">
-                        <img src={`https://attsbackend.onrender.com/uploads/${product.image}`} alt={product.name} />
+                        <img src={`${backendUrl}/uploads/${product.image}`} alt={product.name} />
                         <h3>{product.name}</h3>
                         <p>Price: ${product.price}</p>
                         <p>Stock: {product.stock}</p>
