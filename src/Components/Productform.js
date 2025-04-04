@@ -45,7 +45,7 @@ function Productform() {
     useEffect(() => { 
         getallproducts(); 
 
-    },[]);
+    },[getallproducts]);
 
     //  Add Product
     const handleSubmit = async (values, { resetForm }) => {
