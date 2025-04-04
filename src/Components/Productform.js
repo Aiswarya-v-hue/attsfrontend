@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Styles/formstyle.css'
-
+import { useCallback } from 'react';
 function Productform() {
     const [getproduct, setgetproduct] = useState([]);
     const [editProduct, setEditProduct] = useState(null); // For updating a product
@@ -31,7 +31,7 @@ function Productform() {
     });
 
     //  Fetch All Products
-    const getallproducts = async () => {
+    const getallproducts = useCallback(async () => {
         try {
             const response = await axios.get("https://attsbackend.onrender.com/api/auth/myproducts", {
                 headers: { 'Authorization': `Bearer ${Token}` }
@@ -40,12 +40,12 @@ function Productform() {
         } catch (error) {
             console.error("Error fetching products:", error);
         }
-    };
-
+    }, [Token]);
+    
     useEffect(() => { 
         getallproducts(); 
 
-    },[getallproducts]);
+    },[]);
 
     //  Add Product
     const handleSubmit = async (values, { resetForm }) => {
